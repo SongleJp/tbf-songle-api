@@ -24,7 +24,7 @@ const App = () => {
       <Grid columns="equal">
         <Grid.Column>
           <Menu text>
-            <Menu.Item as={Link} to="/">
+            <Menu.Item as={Link} to="/techbookfest-songle-api-examples">
               <Icon name="home" />
               トップ
             </Menu.Item>
@@ -35,12 +35,12 @@ const App = () => {
           </Menu>
         </Grid.Column>
       </Grid>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/examples/1" component={Example1} />
-      <Route exact path="/examples/2" component={Example1} />
-      <Route exact path="/examples/3" component={Example1} />
-      <Route exact path="/examples/4" component={Example1} />
-      <Route exact path="/examples/5" component={Example1} />
+      <Route exact path="/techbookfest-songle-api-examples" component={Home} />
+      <Route exact path="/techbookfest-songle-api-examples/examples/1" component={Example1} />
+      <Route exact path="/techbookfest-songle-api-examples/examples/2" component={Example1} />
+      <Route exact path="/techbookfest-songle-api-examples/examples/3" component={Example1} />
+      <Route exact path="/techbookfest-songle-api-examples/examples/4" component={Example1} />
+      <Route exact path="/techbookfest-songle-api-examples/examples/5" component={Example1} />
     </Container>
   );
 };
@@ -68,13 +68,13 @@ const Home = () => {
           <Grid.Column>
             <List bulleted>
               <List.Item>
-                <Link to="/examples/1">サンプルプログラム１</Link>
+                <Link to="/techbookfest-songle-api-examples/examples/1">サンプルプログラム１</Link>
               </List.Item>
               <List.Item>
-                <Link to="/examples/2">サンプルプログラム２</Link>
+                <Link to="/techbookfest-songle-api-examples/examples/2">サンプルプログラム２</Link>
               </List.Item>
               <List.Item>
-                <Link to="/examples/3">サンプルプログラム３</Link>
+                <Link to="/techbookfest-songle-api-examples/examples/3">サンプルプログラム３</Link>
               </List.Item>
             </List>
           </Grid.Column>
