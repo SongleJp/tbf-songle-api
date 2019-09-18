@@ -1,0 +1,25 @@
+{
+  "license": "MIT",
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.9.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "lodash": "^4.17.15",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-hot-loader": "^4.12.13",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1"
+  },
+  "alias": {
+    "react-dom": "@hot-loader/react-dom"
+  },
+  "scripts": {
+    "build": "parcel build --no-cache -d ./public_html ./src/index.html",
+    "serve": "parcel serve --no-cache -d ./public_html ./src/index.html"
+  }
+}
