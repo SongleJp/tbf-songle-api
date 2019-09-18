@@ -19,7 +19,7 @@
     "react-dom": "@hot-loader/react-dom"
   },
   "scripts": {
-    "build": "parcel build --no-cache -d ./public_html ./src/index.html",
-    "serve": "parcel serve --no-cache -d ./public_html ./src/index.html"
+    "build": "parcel build --no-cache -d ./docs ./src/index.html",
+    "serve": "parcel serve --no-cache -d ./docs ./src/index.html"
   }
 }
