@@ -35,12 +35,10 @@ const App = () => {
           </Menu>
         </Grid.Column>
       </Grid>
-      <Route exact path="/tbf-songle-api" component={Home} />
-      <Route exact path="/tbf-songle-api/examples/1" component={Example1} />
-      <Route exact path="/tbf-songle-api/examples/2" component={Example1} />
-      <Route exact path="/tbf-songle-api/examples/3" component={Example1} />
-      <Route exact path="/tbf-songle-api/examples/4" component={Example1} />
-      <Route exact path="/tbf-songle-api/examples/5" component={Example1} />
+      <Route exact path="/tbf-songle-api/" component={Home} />
+      <Route exact path="/tbf-songle-api/example1.html" component={Example1} />
+      <Route exact path="/tbf-songle-api/example2.html" component={Example1} />
+      <Route exact path="/tbf-songle-api/example3.html" component={Example1} />
     </Container>
   );
 };
@@ -68,13 +66,13 @@ const Home = () => {
           <Grid.Column>
             <List bulleted>
               <List.Item>
-                <Link to="/tbf-songle-api/examples/1">サンプルプログラム１</Link>
+                <Link to="/tbf-songle-api/example1.html">サンプルプログラム１</Link>
               </List.Item>
               <List.Item>
-                <Link to="/tbf-songle-api/examples/2">サンプルプログラム２</Link>
+                <Link to="/tbf-songle-api/example2.html">サンプルプログラム２</Link>
               </List.Item>
               <List.Item>
-                <Link to="/tbf-songle-api/examples/3">サンプルプログラム３</Link>
+                <Link to="/tbf-songle-api/example3.html">サンプルプログラム３</Link>
               </List.Item>
             </List>
           </Grid.Column>
