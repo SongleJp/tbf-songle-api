@@ -24,7 +24,7 @@ const App = () => {
       <Grid columns="equal">
         <Grid.Column>
           <Menu text>
-            <Menu.Item as={Link} to="/techbookfest-songle-api-examples">
+            <Menu.Item as={Link} to="/tbf-songle-api">
               <Icon name="home" />
               トップ
             </Menu.Item>
@@ -35,12 +35,12 @@ const App = () => {
           </Menu>
         </Grid.Column>
       </Grid>
-      <Route exact path="/techbookfest-songle-api-examples" component={Home} />
-      <Route exact path="/techbookfest-songle-api-examples/examples/1" component={Example1} />
-      <Route exact path="/techbookfest-songle-api-examples/examples/2" component={Example1} />
-      <Route exact path="/techbookfest-songle-api-examples/examples/3" component={Example1} />
-      <Route exact path="/techbookfest-songle-api-examples/examples/4" component={Example1} />
-      <Route exact path="/techbookfest-songle-api-examples/examples/5" component={Example1} />
+      <Route exact path="/tbf-songle-api" component={Home} />
+      <Route exact path="/tbf-songle-api/examples/1" component={Example1} />
+      <Route exact path="/tbf-songle-api/examples/2" component={Example1} />
+      <Route exact path="/tbf-songle-api/examples/3" component={Example1} />
+      <Route exact path="/tbf-songle-api/examples/4" component={Example1} />
+      <Route exact path="/tbf-songle-api/examples/5" component={Example1} />
     </Container>
   );
 };
@@ -68,13 +68,13 @@ const Home = () => {
           <Grid.Column>
             <List bulleted>
               <List.Item>
-                <Link to="/techbookfest-songle-api-examples/examples/1">サンプルプログラム１</Link>
+                <Link to="/tbf-songle-api/examples/1">サンプルプログラム１</Link>
               </List.Item>
               <List.Item>
-                <Link to="/techbookfest-songle-api-examples/examples/2">サンプルプログラム２</Link>
+                <Link to="/tbf-songle-api/examples/2">サンプルプログラム２</Link>
               </List.Item>
               <List.Item>
-                <Link to="/techbookfest-songle-api-examples/examples/3">サンプルプログラム３</Link>
+                <Link to="/tbf-songle-api/examples/3">サンプルプログラム３</Link>
               </List.Item>
             </List>
           </Grid.Column>

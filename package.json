@@ -20,7 +20,7 @@
     "react-dom": "@hot-loader/react-dom"
   },
   "scripts": {
-    "build": "parcel build --no-cache --public-url /techbookfest-songle-api-examples -d ./docs ./src/index.html",
-    "serve": "parcel serve --no-cache --public-url /techbookfest-songle-api-examples -d ./docs ./src/index.html"
+    "build": "parcel build --no-cache --public-url /tbf-songle-api -d ./docs ./src/index.html",
+    "serve": "parcel serve --no-cache --public-url /tbf-songle-api -d ./docs ./src/index.html"
   }
 }
