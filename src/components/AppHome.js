@@ -9,8 +9,17 @@ import {
   Grid,
   Header,
   Icon,
+  Image,
   List
 } from "semantic-ui-react";
+
+import Catalog1 from "../images/catalog1.jpg";
+import Catalog2 from "../images/catalog2.jpg";
+import Catalog3 from "../images/catalog3.jpg";
+import Catalog4 from "../images/catalog4.jpg";
+import Banner1 from "../images/banner1.png";
+import Banner2 from "../images/banner2.png";
+import Banner3 from "../images/banner3.png";
 
 /**
  * @const
@@ -18,7 +27,7 @@ import {
 const AppHome = () => {
   const listContents = [
     {
-      name: "サンプルプログラム",
+      name: "Songle APIを使ってできること",
       href: "/tbf-songle-api/example1.html"
     },
     {
@@ -34,7 +43,7 @@ const AppHome = () => {
       href: "/tbf-songle-api/example4.html"
     },
     {
-      name: "プロパティを使った音楽地図へのアクセス",
+      name: "プロパティを使った音楽地図のアクセス",
       href: "/tbf-songle-api/example5.html"
     },
     {
@@ -47,20 +56,15 @@ const AppHome = () => {
     <Grid>
       <Grid.Row columns="equal">
         <Grid.Column>
-          <Header as="h2">
-            <Header.Content>
-              Songle APIではじめる音楽情報処理ウェブプログラミング入門本
-              <Header.Subheader>
-                サンプルプログラムのページ
-              </Header.Subheader>
-            </Header.Content>
+          <Header as="h1">
+            Songle APIではじめる音楽情報処理ウェブプログラミング入門本
           </Header>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row columns={2}>
         <Grid.Column>
           <Header
-            as="h3"
+            as="h2"
             dividing>
             概要
           </Header>
@@ -79,33 +83,58 @@ const AppHome = () => {
         </Grid.Column>
         <Grid.Column>
           <Header
-            as="h3"
+            as="h2"
             dividing>
-            目次
+            立ち読み
           </Header>
-          <List>
-            <List.Item>
-              <Header as="h4">
-                １章　音楽情報処理ってなんだろう
-              </Header>
-            </List.Item>
-            <List.Item>
-              <Header as="h4">
-                ２章　音楽の構造を観察してみよう
-              </Header>
-            </List.Item>
-            <List.Item>
-              <Header as="h4">
-                ３章　Songle API入門
-              </Header>
-            </List.Item>
-          </List>
+          <Grid>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <a href={Catalog1} target="_blank">
+                  <Image
+                    bordered
+                    centered
+                    size="small"
+                    src={Catalog1} />
+                </a>
+              </Grid.Column>
+              <Grid.Column>
+                <a href={Catalog2} target="_blank">
+                  <Image
+                    bordered
+                    centered
+                    size="small"
+                    src={Catalog2} />
+                </a>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns={2}>
+              <Grid.Column>
+                <a href={Catalog3} target="_blank">
+                  <Image
+                    bordered
+                    centered
+                    size="small"
+                    src={Catalog3} />
+                </a>
+              </Grid.Column>
+              <Grid.Column>
+                <a href={Catalog4} target="_blank">
+                  <Image
+                    bordered
+                    centered
+                    size="small"
+                    src={Catalog4} />
+                </a>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row columns={2}>
         <Grid.Column>
           <Header
-            as="h3"
+            as="h2"
             dividing>
             サンプルプログラム
           </Header>
@@ -125,6 +154,36 @@ const AppHome = () => {
                 );
               })
             }
+          </List>
+        </Grid.Column>
+        <Grid.Column>
+          <Header
+            as="h2"
+            dividing>
+            関連リンク
+          </Header>
+          <List>
+            <List.Item>
+              <Image
+                src={Banner1}
+                as="a"
+                href="https://songle.jp"
+                target="_blank" />
+            </List.Item>
+            <List.Item>
+              <Image
+                src={Banner2}
+                as="a"
+                href="https://songrium.jp"
+                target="_blank" />
+            </List.Item>
+           <List.Item>
+              <Image
+                src={Banner3}
+                as="a"
+                href="https://textalive.jp"
+                target="_blank" />
+            </List.Item>
           </List>
         </Grid.Column>
       </Grid.Row>

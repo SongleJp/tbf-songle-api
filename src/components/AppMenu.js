@@ -15,16 +15,20 @@ import {
  */
 const AppMenu = () => {
   return (
-    <Menu text>
-      <Menu.Item as="a" href="/tbf-songle-api">
-        <Icon name="home" />
-        トップ
-      </Menu.Item>
-      <Menu.Item as="a" href="https://techbookfest.org/event/tbf07/circle/5698415509897216" target="_blank">
-        <Icon name="linkify" />
-        技術書典７のサークルページへ
-      </Menu.Item>
-    </Menu>
+    <Grid columns="equal">
+      <Grid.Column>
+        <Menu text>
+          <Menu.Item as="a" href="/tbf-songle-api">
+            <Icon name="home" />
+            トップ
+          </Menu.Item>
+          <Menu.Item as="a" href="https://techbookfest.org/event/tbf07/circle/5698415509897216" target="_blank">
+            <Icon name="linkify" />
+            技術書典７のサークルページ
+          </Menu.Item>
+        </Menu>
+      </Grid.Column>
+    </Grid>
   );
 };
 
