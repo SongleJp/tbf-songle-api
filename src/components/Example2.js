@@ -6,7 +6,8 @@ import React from "react";
 
 import {
   Grid,
-  Header
+  Header,
+  Icon
 } from "semantic-ui-react";
 
 /**
@@ -20,6 +21,14 @@ const Example2 = () => {
           <Header as="h2">
             2. Hello,Songle API !!
           </Header>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row columns="equal">
+        <Grid.Column textAlign="right">
+          <Icon name="github" />
+          <a href="https://github.com/SongleJp/tbf-songle-api/blob/master/src/example2.html" target="_blank">
+            ソースコードを表示する
+          </a>
         </Grid.Column>
       </Grid.Row>
     </Grid>

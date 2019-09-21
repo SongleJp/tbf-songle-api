@@ -20,7 +20,6 @@
         player.addPlugin(new Songle.Plugin.Beat());
         player.addPlugin(new Songle.Plugin.Chord());
         player.addPlugin(new Songle.Plugin.Chorus());
-        player.addPlugin(new Songle.Plugin.Melody());
         player.addPlugin(new Songle.Plugin.SongleWidget({
           element: '#songle-widget'
         }));
@@ -29,14 +28,14 @@
 
         player.on('beatEnter',
           function(ev) {
-            document.querySelector(".beat").className = "beat beat-" + ev.data.beat.number;
-            document.querySelector(".beat .info1").textContent = ev.data.beat.number;
-            document.querySelector(".beat .info2").textContent = ev.data.beat.numberOfBeatsPerBar;
+            document.querySelector('.beat').className = 'beat beat-' + ev.data.beat.number;
+            document.querySelector('.beat .info1').textContent = ev.data.beat.number;
+            document.querySelector('.beat .info2').textContent = ev.data.beat.numberOfBeatsPerBar;
           });
 
         player.on('chordEnter',
           function(ev) {
-            document.querySelector(".chord .name").textContent = ev.data.chord.name;
+            document.querySelector('.chord .name').textContent = ev.data.chord.name;
           });
 
         player.on('repeatSectionEnter',
@@ -83,25 +82,21 @@
     }
 
     .beat {
-      font-size: 4em;
-      line-height: 2em;
+      font-size: 6em;
+      line-height: 4em;
     }
 
     .beat .info1 {
-      font-size: 2em;
+      font-size: 4em;
     }
 
     .beat .info2 {
-      font-size: 1em;
+      font-size: 2em;
     }
 
     .chord {
-    }
-
-    .chorus {
-    }
-
-    .melody {
+      font-size: 4em;
+      line-height: 2em;
     }
 
     @keyframes beat-anime-1 {
@@ -154,12 +149,6 @@
           <span class="name">
             -
           </span>
-        </div>
-        <div class="chorus">
-
-        </div>
-        <div class="melody">
-
         </div>
       </div>
     </div>
