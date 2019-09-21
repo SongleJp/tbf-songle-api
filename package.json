@@ -19,7 +19,7 @@
     "react-dom": "@hot-loader/react-dom"
   },
   "scripts": {
-    "build": "parcel build --no-source-maps --public-url /tbf-songle-api -d ./docs ./src/*.html",
-    "watch": "parcel watch --no-source-maps --public-url /tbf-songle-api -d ./docs ./src/*.html"
+    "build": "parcel build --no-source-maps --public-url /tbf-songle-api -d ./docs ./src/*",
+    "watch": "parcel watch --no-source-maps --public-url /tbf-songle-api -d ./docs ./src/*"
   }
 }
