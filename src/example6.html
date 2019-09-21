@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta content="telephone=no" name="format-detection" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="楽曲の自動再生" name="application-name" />
+    <meta content="Songle 外部埋め込みプレイヤーの表示" name="application-name" />
     <meta content="Songle APIではじめる音楽情報処理ウェブプログラミング入門本のサンプルプログラムです。" name="description" />
     <title>
-      楽曲の自動再生
+      Songle 外部埋め込みプレイヤーの表示
     </title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <!-- Songle API のサンプルプログラムはここから -->
@@ -17,12 +17,12 @@
           mediaElement: '#media'
         });
 
-        player.useMedia('https://www.youtube.com/watch?v=zweVJrnE1uY');
+        player.addPlugin(new Songle.Plugin.Chorus());
+        player.addPlugin(new Songle.Plugin.SongleWidget({
+          element: '#songle-widget'
+        }));
 
-        // 楽曲の読み込み完了後に自動再生する
-        player.on('ready', function(ev) {
-          player.play();
-        });
+        player.useMedia('https://www.youtube.com/watch?v=zweVJrnE1uY');
       }
     </script>
     <script src="https://api.songle.jp/v2/api.js"></script>

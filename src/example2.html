@@ -4,14 +4,27 @@
     <meta charset="utf-8" />
     <meta content="telephone=no" name="format-detection" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="application-name" />
-    <meta content="" name="description" />
+    <meta content="Hello,Songle API !!" name="application-name" />
+    <meta content="Songle APIではじめる音楽情報処理ウェブプログラミング入門本のサンプルプログラムです。" name="description" />
     <title>
+      Hello,Songle API !!
     </title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <!-- Songle API のサンプルプログラムはここから -->
+    <script>
+      window.onSongleAPIReady = function(Songle) {
+        alert('Hello,Songle API !!');
+      }
+    </script>
+    <script src="https://api.songle.jp/v2/api.js"></script>
+    <!-- Songle API のサンプルプログラムはここまで -->
   </head>
   <body>
     <div id="app"></div>
     <script src="./index.js"></script>
+    <div style="position: fixed; right: 5px; bottom: 5px;">
+      <div id="media"></div>
+      <div id="songle-widget"></div>
+    </div>
   </body>
 </html>
