@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Songle 外部埋め込みプレイヤーの表示" name="application-name" />
+    <meta content="Songle APIではじめる音楽情報処理ウェブプログラミング入門本のサンプルプログラムです。" name="description" />
+    <title>
+      多言語音楽プレイヤーの実装
+    </title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <!-- Songle API のサンプルプログラムはここから -->
+    <script>
+      window.onSongleAPIReady = (Songle) => {
+        const countryCodes = [
+          "De", // ドイツ語
+          "En", // 英語
+          "Ja", // 日本語
+          "Ko", // 韓国語
+          "Ru", // ロシア語
+          "Zh"  // 中国語
+        ];
+
+        const mediaSet = {
+          De: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=Az2X1QG8F4g" }, offset:  -400 },
+          En: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4" }, offset:     0 },
+          Ja: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=ZK__ex6-YA8" }, offset:  -800 },
+          Ko: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=11FJrfYe6eU" }, offset:  -500 },
+          Ru: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=nTjI3H0-Dj8" }, offset:  -600 },
+          Zh: { mediaSourceUrl: "https://www.youtube.com/watch?v=Egn_VNVKzI4", options: { altSourceUrl: "https://www.youtube.com/watch?v=4z1N9XwHJbE" }, offset:   300 }
+        };
+
+        const player =
+          new Songle.Player({
+            mediaElement: "#media"
+          });
+
+        player.addPlugin(new Songle.Plugin.Chorus());
+        player.addPlugin(new Songle.Plugin.SongleWidget({
+          element: "#songle-widget",
+          showController: false
+        }));
+
+        const promiseCache =
+          player.cacheMedia([
+            mediaSet.De,
+            mediaSet.En,
+            mediaSet.Ja,
+            mediaSet.Ko,
+            mediaSet.Ru,
+            mediaSet.Zh,
+          ]);
+
+        promiseCache.then(() => {
+          document.querySelector("#step0").style.display = "none";
+          document.querySelector("#step1").style.display = "block";
+        });
+
+        document.querySelector("#de").addEventListener("click", () => changeMediaWithMute("De"));
+        document.querySelector("#en").addEventListener("click", () => changeMediaWithMute("En"));
+        document.querySelector("#ja").addEventListener("click", () => changeMediaWithMute("Ja"));
+        document.querySelector("#ko").addEventListener("click", () => changeMediaWithMute("Ko"));
+        document.querySelector("#ru").addEventListener("click", () => changeMediaWithMute("Ru"));
+        document.querySelector("#zh").addEventListener("click", () => changeMediaWithMute("Zh"));
+
+        let currentCountryCode = "En";
+        let changed = false;
+
+        const changeMediaWithMute = (countryCode) => {
+          if(changed) {
+            return;
+          }
+
+          changed = true;
+
+          setTimeout(() => { changed = false }, 1000);
+
+          const positionTime = player.positionTime - mediaSet[ currentCountryCode ].offset;
+
+          player.mediaCaches.forEach((media) => {
+            media.muted = true;
+          });
+
+          player.useMedia(mediaSet[ countryCode ]).then(() => {
+            player.play();
+            player.seekTo(mediaSet[ countryCode ].offset + positionTime);
+            player.muted = false;
+            currentCountryCode = countryCode;
+          });
+        }
+
+        document.querySelector("#activate").addEventListener("click", () => {
+          const promiseActivate =
+            Promise.all(
+              player.mediaCaches.map((media) => {
+                media.muted = true;
+                return media.activate();
+              })
+            );
+
+          promiseActivate.then(() => {
+            document.querySelector("#step1").style.display = "none";
+            document.querySelector("#step2").style.display = "block";
+            changeMediaWithMute("En");
+          });
+        });
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "De") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.De.offset });
+
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "En") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.En.offset });
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "Ja") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.Ja.offset });
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "Ko") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.Ko.offset });
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "Ru") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.Ru.offset });
+
+        player.on("repeatedSectionEnter", () => {
+          if(currentCountryCode !== "Zh") {
+            return;
+          }
+
+          changeMediaWithMute(countryCodes[ parseInt(Math.random() * countryCodes.length) ]);
+        }, { offset: mediaSet.Zh.offset });
+      }
+    </script>
+    <script src="https://api.songle.jp/v2/api.js"></script>
+    <!-- Songle API のサンプルプログラムはここまで -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./index.js"></script>
+    <div style="position: absolute; left: 5px; bottom: 5px;">
+      <div id="media"></div>
+      <div id="songle-widget"></div>
+    </div>
+    <div class="ui container">
+      <div id="step0">
+        <h2>楽曲を読み込んでいます</h2>
+      </div>
+      <div id="step1" style="display:none;">
+        <h2>楽曲の再生してください</h2>
+        <div class="ui button" id="activate">
+          再生を開始する
+        </div>
+      </div>
+      <div id="step2" style="display:none;">
+        <div class="ui button" id="de">
+          ドイツ語 (Germany)
+        </div>
+        <div class="ui button" id="en">
+          英語 (English)
+        </div>
+        <div class="ui button" id="ja">
+          日本語 (Japanese)
+        </div>
+        <div class="ui button" id="ko">
+          韓国語 (Korean)
+        </div>
+        <div class="ui button" id="ru">
+          ロシア語 (Russian)
+        </div>
+        <div class="ui button" id="zh">
+          中国語 (Chinese)
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
